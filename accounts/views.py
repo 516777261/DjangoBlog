@@ -49,7 +49,7 @@ class RegisterView(FormView):
             sign = get_sha256(get_sha256(settings.SECRET_KEY + str(user.id)))
 
             if settings.DEBUG:
-                site = '127.0.0.1:8000'
+                site = '127.0.0.1:8001'
             path = reverse('account:result')
             url = "http://{site}{path}?type=validation&id={id}&sign={sign}".format(
                 site=site, path=path, id=user.id, sign=sign)

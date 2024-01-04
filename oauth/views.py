@@ -207,7 +207,7 @@ class RequireEmailView(FormView):
                           str(oauthuser.id) + settings.SECRET_KEY)
         site = get_current_site().domain
         if settings.DEBUG:
-            site = '127.0.0.1:8000'
+            site = '127.0.0.1:8001'
         path = reverse('oauth:email_confirm', kwargs={
             'id': oauthid,
             'sign': sign

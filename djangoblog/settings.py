@@ -36,9 +36,9 @@ DEBUG = env_to_bool('DJANGO_DEBUG', True)
 TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*', '127.0.0.1', 'example.com']
+ALLOWED_HOSTS = ['*']
 # django 4.0新增配置
-CSRF_TRUSTED_ORIGINS = ['http://example.com']
+# CSRF_TRUSTED_ORIGINS = ['*']
 # Application definition
 
 
@@ -104,13 +104,12 @@ WSGI_APPLICATION = 'djangoblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('DJANGO_MYSQL_DATABASE') or 'djangoblog',
         'USER': os.environ.get('DJANGO_MYSQL_USER') or 'root',
-        'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD') or 'uxd54a7TfNUQLZ35XPrn!',
+        'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD') or 'root',
         'HOST': os.environ.get('DJANGO_MYSQL_HOST') or '127.0.0.1',
         'PORT': int(
             os.environ.get('DJANGO_MYSQL_PORT') or 3306),
